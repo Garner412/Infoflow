@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
   has_many :comments
 
 def password
-    @password ||= BCrypt::Password.new(password_hash)
+    @password ||= BCrypt::Password.new(hashed_password)
   end
 
   def password=(new_password)
     @password = BCrypt::Password.create(new_password)
-    self.password_hash = @password
+    self.hashed_password = @password
   end
 
   def self.authenticate(email, password)
