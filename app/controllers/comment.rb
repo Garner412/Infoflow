@@ -20,6 +20,7 @@ end
 
 
 get '/answers/:id/comments/new' do
+  @answer = Question.find(params[:id])
   erb :'/comments/new'
 end
 
