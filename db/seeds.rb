@@ -5,6 +5,6 @@
 
 10.times { Answer.create( question_id: rand(1..10), user_id: rand(1..5), body: Faker::Lorem.paragraph) }
 
-10.times { Comment.create(text: Faker::Lorem.paragraph, user_id: rand(1..5), commentable_id: rand(1..10), commentable_type: ["question", "answer"].sample) }
+10.times { Comment.create(text: Faker::Lorem.paragraph, user_id: rand(1..5), commentable_id: rand(1..10), commentable_type: ["Question", "Answer"].sample) }
 
-10.times { Vote.create(voteable_id: rand(1..10), voteable_type: ["question", "answer", "comment"].sample) }
+10.times { Vote.create(voteable_id: rand(1..10), voteable_type: ["Question", "Answer", "Comment"].sample) }
