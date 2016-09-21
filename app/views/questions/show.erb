@@ -1,8 +1,19 @@
+<div class="container">
 <h1><%= @question.title %></h1>
 <p> <%= @question.content %> </p>
-
+<% @question.comments.each do |qcomment| %>
+  <h5> Comments </h5>
+  <%= qcomment.text %>
+  <% end %>
 <h3>Answers</h3>
 <% @answers.each do |answer| %>
   <p> <%= answer.body %> </p>
+
+  <h5> Comments </h5>
+
+  <% answer.comments.each do |acomment| %>
+    <p> <%= comment.text %> </p>
+      <% end %>
 <% end %>
 
+</div>
