@@ -7,13 +7,15 @@
   <% end %>
 <% end  %>
 
+<h1 style="text-align: center"> Create New Question </h1>
+
 <form action="/questions" method="post"><br><br>
 
-  <label for="title">Title</label><br><br>
-  <input type="text" name="question[title]"><br><br>
+  <label for="title">Title</label><br>
+  <input type="text" name="question[title]" placeholder="Title"><br><br>
 
-  <label for="content">Content</label><br><br>
-  <textarea name="question[content]"></textarea><br><br>
+  <label for="content">Question</label><br>
+  <textarea name="question[content]" placeholder="Question"></textarea><br><br>
 
   <input type="submit" value="Add Question" class="button">
 

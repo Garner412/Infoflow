@@ -3,7 +3,8 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  @question = Question.new(params[:question])
+  @question = logged_in_user.questions.build(params[:question])
+  # @question = Question.new(user_id: logged_in_user.id, title: params[:title], question: params[:content])
   if @question.save
     redirect "/questions/#{@question.id}"
   else
@@ -13,15 +14,18 @@ post '/questions' do
 end
 
 get '/questions/:id/edit' do
-  @question = find_and_ensure_entry(params[:id])
-  if logged_in_user.try(:id) == @question.user_id
-    erb :'/questions/edit'
+  if Question.find(params[:id]) != nil
+    if logged_in_user.try(:id) == question.user_id
+      p @question.user_id
+      erb :'questions/edit'
+    end
   else
     redirect '/'
   end
 end
 
 put '/questions/:id' do
+  @question = Question.find(params[:id])
   @question.assign_attributes(params[:question])
   if logged_in_user.try(:id) == @question.user_id
     @question.save
