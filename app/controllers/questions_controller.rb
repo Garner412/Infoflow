@@ -29,6 +29,7 @@ put '/questions/:id' do
   else
     @errors = @question.errors.full_messages
     erb :'/questions/edit'
+  end
 end
 
 get '/questions/:id' do

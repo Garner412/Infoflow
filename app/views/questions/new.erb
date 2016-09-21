@@ -1,0 +1,22 @@
+<div class="container">
+<br><br>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p> <%= error %> </p>
+  <% end %>
+<% end  %>
+
+<form action="/questions" method="post"><br><br>
+
+  <label for="title">Title</label><br><br>
+  <input type="text" name="question[title]"><br><br>
+
+  <label for="content">Content</label><br><br>
+  <textarea name="question[content]"></textarea><br><br>
+
+  <input type="submit" value="Add Question" class="button">
+
+</form>
+
+</div>
