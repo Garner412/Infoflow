@@ -1,21 +1,37 @@
 
 
 <% if logged_in? %>
-  <div class="container">
+  <% if @question != nil %>
+    <div class="container">
 
-    <h1>Add a comment!</h1>
-    <h2> Question Info</h2>
-    <ul>
-      <li> <%= @question.title %> </li>
-      <li> <%= @question.user.username %> </li>
-      <li> <%= @question.content %> </li>
-    </ul>
-      <form action="/questions/<%= @question.id %>/comments" id="comment_form" method="post">
-        <textarea name="comment_text" rows="4" cols="50">
-        Please... Ask Jones AAAANYTTHING!
-        </textarea>
-     <input class="submit_button" type="submit" value="Submit Comment">
-  </div>
+      <h2>Comment on this question!</h2>
+      <h1> Question Info</h1>
+      <ul>
+        <li>Question Title: <%= @question.title %> </li>
+        <li>Author: <%= @question.user.username %> </li>
+        <li>Question <%= @question.content %> </li>
+      </ul>
+        <form action="/questions/<%= @question.id %>/comments" id="comment_form" method="post">
+          <textarea name="comment_text" rows="6" cols="100">
+          Please... Ask Jones AAAANYTTHING!
+          </textarea>
+       <input class="submit_button" type="submit" value="Submit Comment">
+    </div>
+  <% else %>
+    <div class="container">
+
+      <h2>Comment on this answer!</h2>
+      <h1> Question Info</h1>
+      <ul>
+        <li>Answer: <%= @answer.body %> </li>
+      </ul>
+        <form action="/questions/<%= @question.id %>/comments" id="comment_form" method="post">
+          <textarea name="comment_text" rows="6" cols="100">
+          Please... Ask Jones AAAANYTTHING!
+          </textarea>
+       <input class="submit_button" type="submit" value="Submit Comment">
+    </div>
+  <% end %>
 <% end %>
 
 
