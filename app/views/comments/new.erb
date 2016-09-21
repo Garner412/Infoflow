@@ -10,10 +10,11 @@
       <li> <%= @question.user.username %> </li>
       <li> <%= @question.content %> </li>
     </ul>
-
-      <textarea rows="4" cols="50">
-      Please... Ask Jones AAAANYTTHING!
-      </textarea>
+      <form action="/questions/<%= @question.id %>/comments" id="comment_form" method="post">
+        <textarea name="comment_text" rows="4" cols="50">
+        Please... Ask Jones AAAANYTTHING!
+        </textarea>
+     <input class="submit_button" type="submit" value="Submit Comment">
   </div>
 <% end %>
 
