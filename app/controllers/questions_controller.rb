@@ -15,8 +15,8 @@ end
 
 get '/questions/:id/edit' do
   if Question.find(params[:id]) != nil
-    if logged_in_user.try(:id) == question.user_id
-      p @question.user_id
+    @question = Question.find(params[:id])
+    if logged_in_user.try(:id) == @question.user_id
       erb :'questions/edit'
     end
   else
