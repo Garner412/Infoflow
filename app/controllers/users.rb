@@ -37,11 +37,5 @@ get '/logout' do
 end
 
 get '/users/show' do #this is the user profile
-  if !logged_in?
-  else
-    #add info to display on user page here
-    @user = User.find(session[:user_id])
     erb :'/users/show'
-  end
-  erb :'users/login'
 end
