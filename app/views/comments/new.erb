@@ -1,0 +1,24 @@
+
+
+<% if logged_in? %>
+  <div class="container">
+
+    <h1>Add a comment!</h1>
+    <h2> Question Info</h2>
+    <ul>
+      <li> <%= @question.title %> </li>
+      <li> <%= @question.user.username %> </li>
+      <li> <%= @question.content %> </li>
+    </ul>
+
+      <textarea rows="4" cols="50">
+      Please... Ask Jones AAAANYTTHING!
+      </textarea>
+  </div>
+<% end %>
+
+
+<% if !logged_in? %>
+  <p> not logged in :(</p>
+<% end %>
+
