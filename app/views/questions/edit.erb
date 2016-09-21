@@ -5,15 +5,15 @@
   <% end %>
 <% end  %>
 
-<form>
-  <input action="/questions/:id" method="post"><br><br>
-  <input type="hidden" name="_method" value="put"
+<form action="/questions/<%= @question.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <br>
 
   <label for="title">Title</label><br><br>
-  <input type="text" name="question[title]"><br><br>
+  <input type="text" name="question[title]" value="<%= @question.title %>"><br><br>
 
   <label for="content">Content</label><br><br>
-  <textarea name="question[content]"></textarea><br><br>
+  <textarea name="question[content]"><%= @question.content %></textarea><br><br>
 
   <input type="submit" value="Update Question" class="button">
 
