@@ -12,10 +12,8 @@ end
 
 post '/questions/:id/comments' do
   @question = Question.find(params[:id])
-  p params[:id]
-  comment = Comment.create(text: params[:comment_text], commentable_type: 'Question', commentable_id: params[:id], user_id: logged_in_user.id)
-  p comment
-  redirect '/' #redirect to question page with
+  comment = Comment.create(text: params[:comment_text], user_id: logged_in_user.id,  commentable_id: params[:id], commentable_type: 'Question')
+  redirect "/questions/#{params[:id]}"
 end
 
 

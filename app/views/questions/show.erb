@@ -8,8 +8,14 @@
 
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>
-      <%= qcomment.text %>
+      <ul>
+        <li><%= qcomment.text %> </li>
+      </ul>
     <% end %>
+
+  <form action='/questions/<%= @question.id %>/comments/new'>
+    <input type="submit" value="Comment on an Question">
+  </form><br>
 
   <h3>Answers</h3>
     <% @answers.each do |answer| %>
@@ -20,8 +26,8 @@
         <% end %>
     <% end %>
 
-  <form action='/questions/<%= @question.id %>/comments/new'>
-    <input type="submit" value="Add a comment">
+  <form action='/answer/<%= @question.id %>/comments/new'>
+    <input type="submit" value="Comment on a Answer">
   </form><br>
 
   <form action='/questions/<%= @question.id %>/answers/new'>
