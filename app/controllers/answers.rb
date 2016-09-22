@@ -13,3 +13,10 @@ post '/questions/:id/answers' do
   answer = Answer.create(body: params[:answer_form], user_id: logged_in_user.id, question_id: params[:id])
   redirect "/questions/#{params[:id]}"
 end
+
+post "/answers/:id/vote" do
+  vote = Vote.create(voteable_id: params[:id], voteable_type: "Answer")
+  answer = vote.voteable_type.classify.constantize.find(vote.voteable_id)
+  @question = Question.find(answer.question_id)
+  redirect "/questions/#{@question.id}"
+end
