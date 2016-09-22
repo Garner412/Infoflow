@@ -1,17 +1,17 @@
-
+<br><br><
 <div class="container">
 
-  <h1>Register for Info-Flow!</h1>
+  <h1 id="Header">Register for Info-Flow!</h1>
 
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
 
   <form action="/users" method="post">
     <p>Username:</p>
-    <input id="register-username" name="username" type="text" placeholder="username">
+    <input id="register-username" class="form-control" name="username" type="text" placeholder="username"><br>
     <p>Email:</p>
-    <input id="register-email" name="email" type="email" placeholder="you@example.com">
+    <input id="register-email" class="form-control" name="email" type="email" placeholder="you@example.com"><br>
     <p>Password:</p>
-    <input id="register-password" name="password" type="password" placeholder="password">
-    <input class="submit_button" type="submit" value="Login">
+    <input id="register-password" class="form-control" name="password" type="password" placeholder="password"><br>
+    <input class="btn btn-default" type="submit" value="Login">
   </form>
 </div>
