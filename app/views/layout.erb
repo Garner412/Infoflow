@@ -36,7 +36,7 @@
         <% if !logged_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a id="login" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li><a href= "/questions/new"><span class="glyphicon glyphicon-user"></span> Ask Jones a Question</a></li>

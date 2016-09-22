@@ -14,8 +14,15 @@ $(document).ready(function() {
   });
   });
 
-  $('a').on('click', function() {
+  $('#login').on('click', function(event) {
     event.preventDefault();
-
+    var $link = $(this)
+    var url = $link.attr('href')
+    $.ajax({
+      url: url
+    })
+    .done(function(response) {
+      $('.signinform').append(response);
+    });
   });
 });
