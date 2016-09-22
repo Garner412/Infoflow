@@ -2,15 +2,30 @@
 
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
 
-<div class="form-group">
-  <h1 id="Header">Sign In</h1>
-  <form action="/login" method="post">
-      <p>Email:</p>
-      <input class="form-control" id="login-email" name="email" type="email" placeholder="you@example.com"><br>
-      <p>Password:</p>
-      <input class="form-control" id="login-password" name="password" type="password" placeholder="password"><br>
+  <div class="form-group">
+    <h1 id="Header">Sign In</h1>
 
-      <input class="btn btn-default" type="submit" value="Login">
-  </form>
-</div>
+    <form class="form-horizontal" action="/login" method="POST">
+
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-8">
+          <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-8">
+          <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-3">
+          <button type="submit" class="btn btn-default">Sign In!</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

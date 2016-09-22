@@ -4,10 +4,8 @@
 }*/
 
 .container {
-
   width: 800px;
-
-  border: 1px dotted black;
+  border: 2px dotted black;
 }
 
 textarea {
