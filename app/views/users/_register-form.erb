@@ -1,4 +1,4 @@
-<div class="container">
+<div class="signinpage">
   <h1 id="Header">Register for Ask Jones!</h1>
 
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
@@ -6,28 +6,28 @@
   <form class="form-horizontal" action="/users" method="POST">
 
     <div class="form-group">
-      <label for="username" class="col-sm-2 control-label">Username</label>
+      <label for="username" class="col-sm-3 control-label">Username</label>
       <div class="col-sm-8">
         <input name="username" type="text" class="form-control" id="username" placeholder="Username">
       </div>
     </div>
 
     <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
+      <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-8">
         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
       </div>
     </div>
 
       <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Password</label>
+        <label for="password" class="col-sm-3 control-label">Password</label>
         <div class="col-sm-8">
           <input name="password" type="password" class="form-control" id="password" placeholder="Password">
         </div>
       </div>
 
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-3">
+        <div class="col-sm-offset-3 col-sm-2">
           <button type="submit" class="btn btn-default">Register!</button>
         </div>
       </div>

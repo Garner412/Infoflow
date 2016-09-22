@@ -8,6 +8,14 @@
   border: 2px dotted black;
 }
 
+.signinpage {
+    margin: 50px auto;
+    text-align: center;
+    width: 600px;
+    border: 2px dotted black;
+    padding: 15px 30px 30px 30px;
+}
+
 textarea {
   width: 500px;
   height:100px;
