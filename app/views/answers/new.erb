@@ -1,0 +1,41 @@
+
+
+<% if logged_in? %>
+  <% if @question != nil %>
+    <div class="container">
+
+      <h2>Answer that question, Jones!</h2>
+      <h1> Question Info</h1>
+      <ul>
+        <li>Question Title: <%= @question.title %> </li>
+        <li>Author: <%= @question.user.username %> </li>
+        <li>Question <%= @question.content %> </li>
+      </ul>
+        <form action="/questions/<%= @question.id %>/answers" id="answer_form" method="post">
+          <textarea name="answer_form" rows="6" cols="100">
+          Type your answer, Jones
+          </textarea>
+       <input class="submit_button" type="submit" value="Submit Answer">
+    </div>
+  <% else %>
+    <div class="container">
+
+      <h2>Answer that question, Jones!</h2>
+      <h1> Question Info</h1>
+      <ul>
+        <li>Answer: <%= @answer.body %> </li>
+      </ul>
+        <form action="/questions/<%= @question.id %>/answers" id="answer_form" method="post">
+          <textarea name="answer_form" rows="6" cols="100">
+          Type your answer, Jones
+          </textarea>
+       <input class="submit_button" type="submit" value="Submit Answer">
+    </div>
+  <% end %>
+<% end %>
+
+
+<% if !logged_in? %>
+  <p> not logged in :(</p>
+<% end %>
+

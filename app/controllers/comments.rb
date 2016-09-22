@@ -17,14 +17,9 @@ post '/questions/:id/comments' do
 end
 
 
-get '/answers/:id/comments/new' do
-  # @answer = Answer.find(params[:id])
-  # answer = Answer.create(id: params[:id], user_id: @answer.user_id, body )
-  # redirect "/questions/#{params[:id]}" #link answer to question id
-end
 
-# post '/answers/:id/comments' do
-#   @answer = Answer.find(params[:id])
-#   comment = Comment.create(id: params[:id], user_id: @answer.user_id, body )
-#   redirect "/questions/#{params[:id]}" #link answer to question idend
-# end
+post '/answers/:id/comments/new' do
+  @answer = Answer.find(params[:id])
+  comment = Comment.create(text: params[:comment_text], user_id: @answer.user_id, commentable_id: params[:id], commentable_type: 'Answer')
+  redirect "/questions/#{@answer.question_id}"
+end
