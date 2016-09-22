@@ -3,10 +3,12 @@
   <h1><%= @question.title %></h1>
   <p> <%= @question.content %> </p>
 
+<!-- add logic to address edit button appearing when not the author-->
+  <% if logged_in_user.id == @question.user_id %>
   <form action="/questions/<%= @question.id %>/edit">
     <input type="submit" value="Edit question">
   </form><br>
-
+  <% end %>
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>
       <%= qcomment.text %>

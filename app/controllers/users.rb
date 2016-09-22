@@ -10,7 +10,7 @@ post '/users' do
     erb :'/users/show'
   else
     #add login error here
-    erb :'/user/new'
+    erb :'/users/new'
   end
 end
 
@@ -26,7 +26,7 @@ post '/login' do
     redirect '/'
   else
     #add error message here
-    erb :'/user/login'
+    erb :'/users/login'
   end
 end
 
