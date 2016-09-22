@@ -25,17 +25,19 @@
   <h3>Answers</h3>
     <% @answers.each do |answer| %>
       <p> <%= answer.body %> </p>
+        <% if logged_in? %>
+          <form action='/answers/<%= answer.id %>/comments/new' id="comment_form" method="post">
+            <textarea name="comment_text" rows="2" cols="50">
+              Enter a comment here!
+            </textarea>
+            <input class="submit_button" type="submit" value="Submit Comment">
+          </form><br>
+        <% end %>
       <h5> Comments </h5>
         <% answer.comments.each do |acomment| %>
           <p> <%= acomment.text %> </p>
         <% end %>
     <% end %>
-
-  <% if logged_in? %>
-  <form action='/answer/<%= @question.id %>/comments/new'>
-    <input class="button" type="submit" value="Comment on a Answer">
-  </form><br>
-  <% end %>
 
   <% if logged_in? %>
   <form action='/questions/<%= @question.id %>/answers/new'>
