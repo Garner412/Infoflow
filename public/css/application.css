@@ -1,7 +1,12 @@
+/** {
+  border-style: dotted;
+  border-color: green;
+}*/
+
 .container {
-  margin: 20px auto;
+
   width: 800px;
-  padding: 0px 20px 20px 20px;
+
   border: 1px dotted black;
 }
 
@@ -14,3 +19,23 @@ textarea {
   background-color: black;
   color: white;
 }
+
+
+img {
+  width: 500px;
+  height: 500px;
+
+}
+
+
+.jones-a-tron {
+  font-family: 'Bungee Shade';
+  font-size: 5em;
+  padding: 1px;
+}
+
+.jonsey {
+  border-radius: 10%;
+}
+
+

@@ -7,7 +7,7 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
   <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -44,6 +44,7 @@
           <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% else %>
         <ul class="nav navbar-nav navbar-right">
+          <li><a href= "/questions/new"><span class="glyphicon glyphicon-user"></span> Ask Jones a Question</a></li>
           <li><a href= ""><span class="glyphicon glyphicon-user"></span> <%= logged_in_user.username %></a></li>
           <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
