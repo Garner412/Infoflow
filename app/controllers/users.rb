@@ -7,9 +7,9 @@ post '/users' do
   if @user.save
     session[:user_id] = @user.id
     # redirect '/' Change this back to home page
-    erb :'/users/show'
+    redirect '/'
   else
-    #add login error here
+    @errors = @user.errors.full_messages
     erb :'/users/new'
   end
 end

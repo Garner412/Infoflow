@@ -1,4 +1,7 @@
 <div class="container">
+
+  <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
+
   <h1>Sign In</h1>
   <form action="/login" method="post">
     <p>Email:</p>
