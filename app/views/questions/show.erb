@@ -1,5 +1,7 @@
 <div class="container">
 
+  <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
+
   <h1><%= @question.title %></h1>
   <p> <%= @question.content %> </p>
 

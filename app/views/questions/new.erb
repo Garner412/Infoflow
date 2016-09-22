@@ -1,11 +1,7 @@
 <div class="container">
 <br><br>
 
-<% if @errors %>
-  <% @errors.each do |error| %>
-    <p> <%= error %> </p>
-  <% end %>
-<% end  %>
+<%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
 
 <h1 style="text-align: center"> Create New Question </h1>
 

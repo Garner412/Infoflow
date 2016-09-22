@@ -3,6 +3,8 @@
 
   <h1>Register for Info-Flow!</h1>
 
+  <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
+
   <form action="/users" method="post">
     <p>Username:</p>
     <input id="register-username" name="username" type="text" placeholder="username">
