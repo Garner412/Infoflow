@@ -13,6 +13,8 @@ $(document).ready(function() {
       method: form.attr('method'),
       url: form.attr('action'),
       data: data
+    }).done(function(response){
+      console.log(response);
     })
   });
 
