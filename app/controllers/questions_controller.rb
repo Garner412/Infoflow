@@ -1,9 +1,14 @@
 get '/questions/new' do
-  erb :'/questions/new'
+  if logged_in?
+    erb :'/questions/new'
+  else
+    redirect '/'
+  end
 end
 
 post '/questions' do
   @question = logged_in_user.questions.build(params[:question])
+
   # @question = Question.new(user_id: logged_in_user.id, title: params[:title], question: params[:content])
   if @question.save
     redirect "/questions/#{@question.id}"
