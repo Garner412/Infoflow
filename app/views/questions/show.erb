@@ -10,7 +10,7 @@
       <%= @question.votes.count %>
       </form>
   </div>
-  <p> <%= @question.created_at %> by <%= @question.user.username %> </p>
+  <p> <%= long_form_date(@question.created_at) %> by <%= @question.user.username.capitalize %> </p>
   <p> <%= @question.content %> </p>
 
 <!-- add logic to address edit button appearing when not the author-->
