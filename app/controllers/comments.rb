@@ -18,7 +18,11 @@ end
 post '/answers/:id/comments/new' do
   @answer = Answer.find(params[:id])
   comment = Comment.create(text: params[:comment_text], user_id: @answer.user_id, commentable_id: params[:id], commentable_type: "Answer")
-  redirect "/questions/#{@answer.question_id}"
+  if request.xhr?
+
+  else
+    redirect "/questions/#{@answer.question_id}"
+  end
 end
 
 post "/comments/:id/vote" do
