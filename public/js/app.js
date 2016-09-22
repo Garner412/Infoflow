@@ -14,7 +14,7 @@ $(document).ready(function() {
   });
   });
 
-  $('#login').on('click', function(event) {
+  $('.login-register').on('click', function(event) {
     event.preventDefault();
     var $link = $(this)
     var url = $link.attr('href')
@@ -22,7 +22,7 @@ $(document).ready(function() {
       url: url
     })
     .done(function(response) {
-      $('.signinform').append(response);
+      $('.popupform').html(response);
     });
   });
 });

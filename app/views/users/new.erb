@@ -1,10 +1,10 @@
 <br><br>
 <div class="container">
 
-  <h1 id="Header">Register for Info-Flow!</h1>
+  <h1 id="Header">Register for Ask Jones!</h1>
 
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
-
+<div class="form-group">
   <form action="/users" method="post">
     <p>Username:</p>
     <input id="register-username" class="form-control" name="username" type="text" placeholder="username"><br>
@@ -14,4 +14,5 @@
     <input id="register-password" class="form-control" name="password" type="password" placeholder="password"><br>
     <input class="btn btn-default" type="submit" value="Login">
   </form>
+</div>
 </div>
