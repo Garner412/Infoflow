@@ -1,0 +1,4 @@
+<form action='/comments/<%= @comment.id %>/vote' method='post'>
+  <input class="btn btn-default" type="submit" value="👍">
+    <%= @comment.votes.count %>
+</form>

@@ -25,5 +25,9 @@ post "/comments/:id/vote" do
   vote = Vote.create(voteable_id: params[:id], voteable_type: "Comment")
   comment = vote.voteable_type.classify.constantize.find(vote.voteable_id)
   @question = comment.commentable_type.classify.constantize.find(comment.commentable_id)
-  redirect "/questions/#{@question.id}"
+  if request.xhr?
+    comment.votes.count.to_s
+  else
+    redirect "/questions/#{@question.id}"
+  end
 end

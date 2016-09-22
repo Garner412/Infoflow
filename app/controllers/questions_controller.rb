@@ -22,8 +22,12 @@ post "/questions/:id/vote" do
   @question = Question.find(vote.voteable_id)
   if Comment.find(vote.voteable_id)
      @comment = Comment.find(vote.voteable_id)
-   end
-  redirect "/questions/#{@question.id}"
+    if request.xhr?
+      @question.votes.count.to_s
+    else
+      redirect "/questions/#{@question.id}"
+    end
+  end
 end
 
 get '/questions/:id/edit' do
