@@ -3,6 +3,7 @@
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
 
   <h1><%= @question.title %></h1>
+  <p> <%= @question.created_at %> by <%= @question.user.username %> </p>
   <p> <%= @question.content %> </p>
 
 <!-- add logic to address edit button appearing when not the author-->
@@ -15,9 +16,11 @@
       </ul>
     <% end %>
 
+  <% if logged_in? %>
   <form action='/questions/<%= @question.id %>/comments/new'>
-    <input type="submit" value="Comment on an Question">
+    <input class="button" type="submit" value="Comment on an Question">
   </form><br>
+  <% end %>
 
   <h3>Answers</h3>
     <% @answers.each do |answer| %>
@@ -28,13 +31,16 @@
         <% end %>
     <% end %>
 
+  <% if logged_in? %>
   <form action='/answer/<%= @question.id %>/comments/new'>
-    <input type="submit" value="Comment on a Answer">
+    <input class="button" type="submit" value="Comment on a Answer">
   </form><br>
+  <% end %>
 
+  <% if logged_in? %>
   <form action='/questions/<%= @question.id %>/answers/new'>
-    <input type="submit" value="Add an answer">
+    <input class="button" type="submit" value="Add an answer">
   </form><br>
-
+  <% end %>
 
 </div>

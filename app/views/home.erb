@@ -1,10 +1,10 @@
 <div class="jumbotron lk_jumbo">
-  <h1 class="lk_jumbo_text">Ask Jones</h1>
+  <h1 class="lk_jumbo_text" style="text-align: center">Ask Jones</h1>
 </div>
 
 <% if logged_in? %>
   <form action='/questions/new'>
-    <input type="submit" value="Ask a question">
+    <input class="button" type="submit" value="Ask a question">
   </form><br>
 <% end %>
 

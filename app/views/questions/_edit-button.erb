@@ -1,5 +1,7 @@
-  <% if logged_in_user.id == @question.user_id %>
-  <form action="/questions/<%= @question.id %>/edit">
-    <input type="submit" value="Edit question">
-  </form><br>
+  <% if logged_in? %>
+    <% if logged_in_user.id == @question.user_id %>
+    <form action="/questions/<%= @question.id %>/edit">
+      <input type="submit" value="Edit question">
+    </form><br>
+    <% end %>
   <% end %>
