@@ -5,9 +5,9 @@
 
   <div>
     <h1><%= @question.title %></h1>
-      <form action='/questions/<%= @question.id %>/vote' method='post'>
+      <form class="upvotes" action='/questions/<%= @question.id %>/vote' method='post'>
       <input class="btn btn-default" type="submit" value="👍">
-      <%= @question.votes.count %>
+      <span class="upvotes"><%= @question.votes.count %></span>
       </form>
   </div>
   <p> <%= @question.created_at %> by <%= @question.user.username %> </p>
@@ -18,11 +18,11 @@
 
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>
-      <ul>
+      <ul style="list-style: none">
         <li class="well-lg"><%= qcomment.text %>
-          <form action='/comments/<%= qcomment.id %>/vote' method='post'>
+          <form class="upvotes" action='/comments/<%= qcomment.id %>/vote' method='post'>
             <input class="btn btn-default" type="submit" value="👍">
-              <%= qcomment.votes.count %>
+             <span class="upvotes"> <%= qcomment.votes.count %> </span>
           </form>
       </li>
       </ul>
@@ -38,17 +38,17 @@
     <h3>Answers</h3>
   <% @answers.each do |answer| %>
       <p style="border-top: 3px solid black"> <%= answer.body %> </p>
-      <form action='/answers/<%= answer.id %>/vote' method='post'>
+      <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
         <input class="btn btn-default" type="submit" value="👍">
-        <%= answer.votes.count %>
+        <span class="upvotes"> <%= answer.votes.count %></span>
       </form>
           <h5> Comments </h5>
             <% answer.comments.each do |acomment| %>
               <p> <%= acomment.text %> </p>
            <% if logged_in? %>
-           <form action='/answers/<%= answer.id %>/vote' method='post'>
-            <input class="btn btn-default" type="submit" value="">
-              <%= answer.votes.count %>
+           <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
+            <input class="btn btn-default" type="submit" value="👍">
+              <span class="upvotes"><%= answer.votes.count %></span><br><br>
             </form>
           <% end %>
         <% end %>
