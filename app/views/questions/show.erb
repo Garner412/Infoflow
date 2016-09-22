@@ -2,7 +2,13 @@
 
   <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
 
-  <h1><%= @question.title %></h1>
+  <div>
+    <h1><%= @question.title %></h1>
+      <form action='/questions/<%= @question.id %>/vote' method='post'>
+      <input type="submit" value="👍">
+      <%= @question.votes.count %>
+      </form>
+  </div>
   <p> <%= @question.created_at %> by <%= @question.user.username %> </p>
   <p> <%= @question.content %> </p>
 
@@ -12,7 +18,12 @@
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>
       <ul>
-        <li><%= qcomment.text %> </li>
+        <li><%= qcomment.text %>
+          <form action='/comment/<%= qcomment.id %>/vote' method='post'>
+            <input type="submit" value="👍">
+              <%= qcomment.votes.count %>
+          </form>
+      </li>
       </ul>
     <% end %>
 
