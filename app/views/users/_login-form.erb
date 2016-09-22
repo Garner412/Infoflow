@@ -1,0 +1,16 @@
+<div class="container">
+
+  <%= erb :'questions/_errors', layout: false, locals: {errors: @errors} %>
+
+<div class="form-group">
+  <h1 id="Header">Sign In</h1>
+  <form action="/login" method="post">
+      <p>Email:</p>
+      <input class="form-control" id="login-email" name="email" type="email" placeholder="you@example.com"><br>
+      <p>Password:</p>
+      <input class="form-control" id="login-password" name="password" type="password" placeholder="password"><br>
+
+      <input class="btn btn-default" type="submit" value="Login">
+  </form>
+</div>
+</div>
