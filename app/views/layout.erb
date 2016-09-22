@@ -16,13 +16,11 @@
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="/css/application.css">
-
+  <script src="/js/app.js"></script>
   <script src="/js/application.js"></script>
+
+  <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
 
   <title>Ask Jones</title>
 </head>
@@ -38,8 +36,8 @@
         </ul>
         <% if !logged_in? %>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a class="login-register" href="/users/new"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+          <li><a class="login-register" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li><a href= "/questions/new"><span class="glyphicon glyphicon-user"></span> Ask Jones a Question</a></li>

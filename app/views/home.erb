@@ -1,19 +1,19 @@
+<div class="popupform">
+</div>
+
 <div class="jones-a-tron">
   <h1  style="text-align: center">Ask Jones</h1>
 </div>
 
-
-
-  <div class="col-md-4">
-    <% @questions.each do  |question| %>
-      <tbody>
-        <tr class="list-group">
-          <li class="well well-sm"><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
-        </tr>
-      </tbody>
+<div class="col-md-4">
+  <% @questions.each do  |question| %>
+  <tbody>
+    <tr class="list-group">
+      <li style="list-style: none" class="well well-sm"><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+    </tr>
+  </tbody>
   <% end %>
 </div>
-
 
 <div class='jonsey'>
   <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAegAAAAJGJmZjJiNWMzLWRmYmYtNGE4My05MjkyLTVlMGZhNTNlMDdmMA.jpg"  class="img-rounded" >

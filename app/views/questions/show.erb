@@ -5,67 +5,70 @@
 
   <div>
     <h1><%= @question.title %></h1>
-      <form action='/questions/<%= @question.id %>/vote' method='post'>
+    <p> <%= long_form_date(@question.created_at) %> by <%= @question.user.username.capitalize %> </p>
+    <form class="upvotes" action='/questions/<%= @question.id %>/vote' method='post'>
       <input class="btn btn-default" type="submit" value="👍">
-      <%= @question.votes.count %>
-      </form>
-  </div>
-  <p> <%= long_form_date(@question.created_at) %> by <%= @question.user.username.capitalize %> </p>
-  <p> <%= @question.content %> </p>
+      <span class="upvotes"><%= @question.votes.count %></span>
+    </form>
+  </div><br>
+  <p> <%= @question.content %> </p><br>
 
-<!-- add logic to address edit button appearing when not the author-->
- <%= erb :'questions/_edit-button', layout: false, locals: {question: @question} %>
+  <!-- add logic to address edit button appearing when not the author-->
+  <%= erb :'questions/_edit-button', layout: false, locals: {question: @question} %>
 
   <h5> Comments </h5>
-    <% @question.comments.each do |qcomment| %>
-      <ul>
-        <li class="well-lg"><%= qcomment.text %>
-          <form action='/comments/<%= qcomment.id %>/vote' method='post'>
-            <input class="btn btn-default" type="submit" value="👍">
-              <%= qcomment.votes.count %>
-          </form>
-      </li>
-      </ul>
-    <% end %>
+  <% @question.comments.each do |qcomment| %>
+  <ul style="list-style: none">
+    <li class="well-lg"><%= qcomment.text %>
+      <p> <%= long_form_date(@question.created_at) %> by <%= @question.user.username.capitalize %> </p>
+      <form class="upvotes" action='/comments/<%= qcomment.id %>/vote' method='post'>
+        <input class="btn btn-default" type="submit" value="👍">
+        <span class="upvotes"> <%= qcomment.votes.count %> </span>
+      </form>
+    </li>
+  </ul>
+  <% end %>
 
   <% if logged_in? %>
   <form action='/questions/<%= @question.id %>/comments/new'>
     <input class="btn btn-default" type="submit" value="Comment on Question">
-  </form><br>
+  </form><br><br>
   <% end %>
 
+  <p style="border-top: 3px solid black"> </p>
 
-    <h3>Answers</h3>
+  <h3>Answers</h3><br>
   <% @answers.each do |answer| %>
-    <div class="answer">
-      <p style="border-top: 3px solid black"> <%= answer.body %> </p>
-        <form action='/answers/<%= answer.id %>/vote' method='post'>
-          <input class="btn btn-default" type="submit" value="👍">
-          <%= answer.votes.count %>
-        </form>
-          <h5> Comments </h5>
+  <div class="answer">
+    <p> <%= answer.body %> </p>
+    <p style="font-size: 0.6em"> <%= long_form_date(answer.created_at) %> by <%= answer.user.username.capitalize %> </p>
+    <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
+      <input class="btn btn-default" type="submit" value="👍">
+      <span class="upvotes"> <%= answer.votes.count %></span>
+    </form><br>
 
-            <% answer.comments.each do |acomment| %>
-              <p> <%= acomment.text %> </p>
-           <% if logged_in? %>
-
-           <form action='/answers/<%= answer.id %>/vote' method='post'>
-            <input class="btn btn-default" type="submit" value="">
-              <%= answer.votes.count %>
-            </form>
-          <% end %>
-        <% end %>
-        <br>
-        <button class="new_comment_button btn btn-default" >New Comments</button><br>
-        <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
-          <br>
-    </div>
+    <h5> Comments </h5><br>
+    <% answer.comments.each do |acomment| %>
+    <p> <%= acomment.text %> </p>
+    <% if logged_in? %>
+    <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
+      <input class="btn btn-default" type="submit" value="👍">
+      <span class="upvotes"><%= answer.votes.count %></span><br><br>
+    </form>
     <% end %>
+    <% end %>
+    <br>
+    <button class="new_comment_button btn btn-default" >New Comments</button><br>
+    <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
+    <br>
+  </div>
+  <p style="border-top: 3px solid black"> </p>
+  <% end %>
 
   <% if logged_in? %>
+  <br>
   <form action='/questions/<%= @question.id %>/answers/new'>
     <input class="btn btn-default" type="submit" value="Add an answer">
   </form><br>
-<% end %>
-
+  <% end %>
 </div>
