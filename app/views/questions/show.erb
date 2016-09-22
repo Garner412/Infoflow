@@ -3,9 +3,8 @@
   <h1><%= @question.title %></h1>
   <p> <%= @question.content %> </p>
 
-  <form action="/questions/<%= @question.id %>/edit">
-    <input type="submit" value="Edit question">
-  </form><br>
+<!-- add logic to address edit button appearing when not the author-->
+ <%= erb :'questions/_edit-button', layout: false, locals: {question: @question} %>
 
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>

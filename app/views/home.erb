@@ -1,6 +1,12 @@
 <div class="jumbotron lk_jumbo">
   <h1 class="lk_jumbo_text">Ask Jones</h1>
 </div>
+
+  <form action='/questions/new'>
+    <input type="submit" value="Ask a question">
+  </form><br>
+
+
   <div class="col-md-4">
     <% @questions.each do  |question| %>
       <tbody>
