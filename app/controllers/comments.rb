@@ -19,7 +19,8 @@ post '/answers/:id/comments/new' do
   @answer = Answer.find(params[:id])
   comment = Comment.create(text: params[:comment_text], user_id: @answer.user_id, commentable_id: params[:id], commentable_type: "Answer")
   if request.xhr?
-
+    # { comment_text:  }.to_json
+    # erb :'/questions/_add_comment'
   else
     redirect "/questions/#{@answer.question_id}"
   end
