@@ -4,5 +4,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   has_many :votes, as: :voteable
 
-  validates :title, presence: true
+  validates :text, presence: true
 end
