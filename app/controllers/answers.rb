@@ -1,7 +1,3 @@
-
-
-
-
 get '/questions/:id/answers/new' do
   @question = Question.find(params[:id])
   erb :'/answers/new'
@@ -18,5 +14,9 @@ post "/answers/:id/vote" do
   vote = Vote.create(voteable_id: params[:id], voteable_type: "Answer")
   answer = vote.voteable_type.classify.constantize.find(vote.voteable_id)
   @question = Question.find(answer.question_id)
-  redirect "/questions/#{@question.id}"
+  if request.xhr?
+    answer.votes.count.to_s
+  else
+    redirect "/questions/#{@question.id}"
+  end
 end

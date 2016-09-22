@@ -15,9 +15,12 @@ post '/users' do
 end
 
 get '/login' do
-  erb :'/users/login'
+  if request.xhr?
+    erb :'users/_login-form', layout: false
+  else
+    erb :'/users/login'
+  end
 end
-
 
 post '/login' do
   @user = User.authenticate(params[:email], params[:password])
