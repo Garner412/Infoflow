@@ -20,7 +20,9 @@ end
 post "/questions/:id/vote" do
   vote = Vote.create(voteable_id: params[:id], voteable_type: "Question")
   @question = Question.find(vote.voteable_id)
-  @comment = Comment.find(vote.voteable_id)
+  if Comment.find(vote.voteable_id)
+     @comment = Comment.find(vote.voteable_id)
+   end
   redirect "/questions/#{@question.id}"
 end
 

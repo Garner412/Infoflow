@@ -18,13 +18,9 @@
   <h5> Comments </h5>
     <% @question.comments.each do |qcomment| %>
       <ul>
-<<<<<<< HEAD
-        <li><%= qcomment.text %>
-          <form action='/comments/<%= qcomment.id %>/vote' method='post'>
-=======
+
         <li class="well-lg"><%= qcomment.text %>
-          <form action='/comment/<%= qcomment.id %>/vote' method='post'>
->>>>>>> master
+          <form action='/comments/<%= qcomment.id %>/vote' method='post'>
             <input type="submit" value="👍">
               <%= qcomment.votes.count %>
           </form>
