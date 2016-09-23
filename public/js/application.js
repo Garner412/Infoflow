@@ -1,11 +1,10 @@
 $(document).ready(function() {
   $('.new_comment_button').on('click', function(event){
     event.preventDefault();
-    var $form = $(this);
-    $form.hide();
-    // $form.siblings('form.new_comment_form')
-    $('.new_comment_form').removeClass('hidden');
-  });
+    $(this).hide();
+    var form = $(thi'hidden');
+  });s).siblings('form.new_comment_form')
+    form.removeClass(
   $('.new_comment_form').on('submit', function(event){
     event.preventDefault();
     var form = $(this);
