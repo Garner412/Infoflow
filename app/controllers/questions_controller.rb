@@ -18,15 +18,17 @@ post '/questions' do
 end
 
 post "/questions/:id/vote" do
-  vote = Vote.create(voteable_id: params[:id], voteable_type: "Question")
+  if logged_in?
+    vote = Vote.create(voteable_id: params[:id], voteable_type: "Question")
+  end
   @question = Question.find(vote.voteable_id)
   # if Comment.find(vote.voteable_id)
   #    @comment = Comment.find(vote.voteable_id)
-    if request.xhr?
-      @question.votes.count.to_s
-    else
-      redirect "/questions/#{@question.id}"
-    end
+  if request.xhr?
+    @question.votes.count.to_s
+  else
+    redirect "/questions/#{@question.id}"
+  end
   # end
 end
 
