@@ -12,7 +12,11 @@ end
 post '/questions/:id/comments' do
   @question = Question.find(params[:id])
   comment = Comment.create(text: params[:comment_text], user_id: logged_in_user.id,  commentable_id: params[:id], commentable_type: 'Question')
-  redirect "/questions/#{params[:id]}"
+  if request.xhr?
+    erb :"/comments/_question_comment", layout: false, locals: {question: @question, qcomment: comment}
+  else
+    redirect "/questions/#{params[:id]}"
+  end
 end
 
 post '/answers/:id/comments/new' do

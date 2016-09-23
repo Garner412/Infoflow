@@ -20,14 +20,22 @@
 
   <h5> Comments </h5>
   <% @question.comments.each do |qcomment| %>
+    <ul style="list-style: none">
+        <li class="well-lg">
   <%= erb :"/comments/_question_comment", layout: false, locals: {question: @question, qcomment: qcomment} %>
+
+    <div class="append_comment_ q">
+    </div>
+      </li>
+    </ul>
   <% end %>
 
+
   <% if logged_in? %>
-  <form action='/questions/<%= @question.id %>/comments/new'>
-    <input class="new_comment_button btn btn-default" type="submit" value="New Comment">
-  </form><br><br>
+  <button class="new_comment_button-q btn btn-default" >New Comment</button><br>
+  <%= erb :"/questions/_add_comment_q", layout: false, locals: {question: @question} %>
   <% end %>
+  <br><br>
 
   <p style="border-top: 3px solid black"> </p>
 
@@ -48,12 +56,13 @@
     <%= erb :"/comments/_answer_comment", layout: false, locals: {answer: answer, acomment: acomment} %>
     <% end %>
     <br>
+  
 
     <div class="append_comment">
     </div>
 
     <% if logged_in? %>
-    <button class="new_comment_button btn btn-default" >New Comment</button><br>
+    <button class="new_comment_button-a btn btn-default" >New Comment</button><br>
     <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
     <% end %>
     <br>
