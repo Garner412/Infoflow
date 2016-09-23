@@ -26,7 +26,9 @@ post '/answers/:id/comments/new' do
 end
 
 post "/comments/:id/vote" do
-  vote = Vote.create(voteable_id: params[:id], voteable_type: "Comment")
+  if logged_in?
+    vote = Vote.create(voteable_id: params[:id], voteable_type: "Comment")
+  end
   comment = vote.voteable_type.classify.constantize.find(vote.voteable_id)
   @question = comment.commentable_type.classify.constantize.find(comment.commentable_id)
   if request.xhr?
