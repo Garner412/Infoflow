@@ -31,7 +31,7 @@
 
   <% if logged_in? %>
   <form action='/questions/<%= @question.id %>/comments/new'>
-    <input class="btn btn-default" type="submit" value="Comment on Question">
+    <input class="new_comment_button btn btn-default" type="submit" value="New Comment">
   </form><br><br>
   <% end %>
 
@@ -56,7 +56,7 @@
     <div class="append_comment">
     </div>
 
-    <button class="new_comment_button btn btn-default" >New Comments</button><br>
+    <button class="new_comment_button btn btn-default" >New Comment</button><br>
     <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
     <br>
   </div>
