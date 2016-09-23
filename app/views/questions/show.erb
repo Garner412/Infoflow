@@ -49,15 +49,13 @@
 
     <h5> Comments </h5><br>
     <% answer.comments.each do |acomment| %>
-    <p> <%= acomment.text %> </p>
-    <% if logged_in? %>
-    <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
-      <input class="btn btn-default" type="submit" value="👍">
-      <span class="upvotes"><%= answer.votes.count %></span><br><br>
-    </form>
-    <% end %>
+    <%= erb :"/comments/_answer_comment", layout: false, locals: {answer: answer, acomment: acomment} %>
     <% end %>
     <br>
+
+    <div class="append_comment">
+    </div>
+
     <button class="new_comment_button btn btn-default" >New Comments</button><br>
     <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
     <br>

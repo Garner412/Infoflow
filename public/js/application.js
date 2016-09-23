@@ -1,22 +1,26 @@
 $(document).ready(function() {
   $('.new_comment_button').on('click', function(event){
     event.preventDefault();
-    var $click = $(this);
-    var form = $(this).siblings('form.new_comment_form')
-    $click.hide();
-    form.removeClass('hidden');
-    // var url = form.attr('action');
-    // var method = form.attr('method');
+    $(this).hide();
+    var form = $(thi'hidden');
+  });s).siblings('form.new_comment_form')
+    form.removeClass(
+  $('.new_comment_form').on('submit', function(event){
+    event.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+    var method = form.attr('method');
     var data = form.serialize();
-    console.log(data);
+
     $.ajax({
-      method: form.attr('method'),
-      url: form.attr('action'),
+      url: url,
+      method: method,
       data: data
-    }).done(function(response){
-      console.log(response);
     })
-  });
+    .done(function(response){
+      $('.append_comment').append(response);
+      form.removeClass('hidden');
+    })
+  })
 
 });
-
