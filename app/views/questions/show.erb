@@ -1,3 +1,5 @@
+<!-- <div class="popupform">
+</div> -->
 <br><br>
 <div class="container">
 
@@ -56,8 +58,10 @@
     <div class="append_comment">
     </div>
 
-    <button class="new_comment_button btn btn-default" >New Comments</button><br>
+    <% if logged_in? %>
+    <button class="new_comment_button btn btn-default" >New Comment</button><br>
     <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
+    <% end %>
     <br>
   </div>
   <p style="border-top: 3px solid black"> </p>
@@ -70,3 +74,4 @@
   </form><br>
   <% end %>
 </div>
+<br><br><br>
