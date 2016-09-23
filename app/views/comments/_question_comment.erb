@@ -1,6 +1,6 @@
 <%= qcomment.text %>
 <% if qcomment.user %>
-<p> <%= long_form_date(@qcomment.created_at) %> by <%= @qcomment.user.username.capitalize %> </p>
+<p> <%= long_form_date(qcomment.created_at) %> by <%= qcomment.user.username.capitalize %> </p>
 <% end %>
 <form class="upvotes" action='/comments/<%= qcomment.id %>/vote' method='post'>
  <input class="btn btn-default" type="submit" value="👍">
