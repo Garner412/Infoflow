@@ -19,6 +19,7 @@ $(document).ready(function() {
       data: data
     })
     .done(function(response){
+      // console.log(response)
       $('.append_comment').append(response);
       form.removeClass('hidden');
     })

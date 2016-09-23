@@ -1,7 +1,7 @@
 <p> <%= acomment.text %> </p>
-  <% if logged_in? %>
-    <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
-      <input class="btn btn-default" type="submit" value="👍">
-      <span class="upvotes"><%= answer.votes.count %></span><br><br>
-    </form>
-  <% end %>
+<% if logged_in? %>
+<form class="upvotes" action='/comments/<%= acomment.id %>/vote' method='post'>
+	<input class="btn btn-default" type="submit" value="👍">
+	<span class="upvotes"><%= acomment.votes.count %></span><br><br>
+</form>
+<% end %>
