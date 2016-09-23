@@ -18,9 +18,6 @@ end
 post '/answers/:id/comments/new' do
   @answer = Answer.find(params[:id])
   comment = Comment.create(text: params[:comment_text], user_id: @answer.user_id, commentable_id: params[:id], commentable_type: "Answer")
-  p "------------------"
-  p comment
-  p comment.votes.count
   if request.xhr?
     erb :'/comments/_answer_comment', layout: false, locals: {answer: @answer, acomment: comment }
   else

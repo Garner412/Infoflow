@@ -1,4 +1,5 @@
 <p> <%= acomment.text %> </p>
+  <p style="font-size: 0.8em"> <%= long_form_date(acomment.created_at) %> by <%= acomment.user.username %> </p>
 <% if logged_in? %>
 <form class="upvotes" action='/comments/<%= acomment.id %>/vote' method='post'>
 	<input class="btn btn-default" type="submit" value="👍">
