@@ -1,12 +1,10 @@
-<div class="popupform">
-</div>
 
 <div class="jones-a-tron">
   <h1  style="text-align: center">Ask Jones</h1>
 </div>
 
 <div class="col-md-4">
-  <% @questions.each do  |question| %>
+  <% @questions.first(9).each do  |question| %>
   <tbody>
     <tr class="list-group">
       <li style="list-style: none" class="well well-sm"><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
@@ -18,4 +16,6 @@
 <div class='jonsey'>
   <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAegAAAAJGJmZjJiNWMzLWRmYmYtNGE4My05MjkyLTVlMGZhNTNlMDdmMA.jpg"  class="img-rounded" >
   <caption id="caption-1">hey this is jones</caption>
+  <img src="http://www.smallbiztechnology.com/wp-content/uploads/2013/11/your-ad-here-500x500-300x300.jpg"  class="img-rounded" >
 </div>
+

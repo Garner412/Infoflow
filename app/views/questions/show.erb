@@ -1,3 +1,5 @@
+<!-- <div class="popupform">
+</div> -->
 <br><br>
 <div class="container">
 
@@ -18,22 +20,22 @@
 
   <h5> Comments </h5>
   <% @question.comments.each do |qcomment| %>
-  <ul style="list-style: none">
-    <li class="well-lg"><%= qcomment.text %>
-      <p> <%= long_form_date(@question.created_at) %> by <%= @question.user.username.capitalize %> </p>
-      <form class="upvotes" action='/comments/<%= qcomment.id %>/vote' method='post'>
-        <input class="btn btn-default" type="submit" value="👍">
-        <span class="upvotes"> <%= qcomment.votes.count %> </span>
-      </form>
-    </li>
-  </ul>
+    <ul style="list-style: none">
+        <li class="well-lg">
+  <%= erb :"/comments/_question_comment", layout: false, locals: {question: @question, qcomment: qcomment} %>
+
+    <div class="append_comment_ q">
+    </div>
+      </li>
+    </ul>
   <% end %>
 
+
   <% if logged_in? %>
-  <form action='/questions/<%= @question.id %>/comments/new'>
-    <input class="btn btn-default" type="submit" value="Comment on Question">
-  </form><br><br>
+  <button class="new_comment_button-q btn btn-default" >New Comment</button><br>
+  <%= erb :"/questions/_add_comment_q", layout: false, locals: {question: @question} %>
   <% end %>
+  <br><br>
 
   <p style="border-top: 3px solid black"> </p>
 
@@ -41,7 +43,9 @@
   <% @answers.each do |answer| %>
   <div class="answer">
     <p> <%= answer.body %> </p>
+    <% if answer.user %>
     <p style="font-size: 0.6em"> <%= long_form_date(answer.created_at) %> by <%= answer.user.username.capitalize %> </p>
+    <% end %> 
     <form class="upvotes" action='/answers/<%= answer.id %>/vote' method='post'>
       <input class="btn btn-default" type="submit" value="👍">
       <span class="upvotes"> <%= answer.votes.count %></span>
@@ -52,12 +56,15 @@
     <%= erb :"/comments/_answer_comment", layout: false, locals: {answer: answer, acomment: acomment} %>
     <% end %>
     <br>
+  
 
     <div class="append_comment">
     </div>
 
-    <button class="new_comment_button btn btn-default" >New Comments</button><br>
+    <% if logged_in? %>
+    <button class="new_comment_button-a btn btn-default" >New Comment</button><br>
     <%= erb :"/questions/_add_comment", layout: false, locals: {answer: answer} %>
+    <% end %>
     <br>
   </div>
   <p style="border-top: 3px solid black"> </p>
@@ -70,3 +77,4 @@
   </form><br>
   <% end %>
 </div>
+<br><br><br>

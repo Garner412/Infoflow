@@ -29,7 +29,6 @@ post "/questions/:id/vote" do
   else
     redirect "/questions/#{@question.id}"
   end
-  # end
 end
 
 get '/questions/:id/edit' do

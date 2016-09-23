@@ -11,7 +11,9 @@ post '/questions/:id/answers' do
 end
 
 post "/answers/:id/vote" do
-  vote = Vote.create(voteable_id: params[:id], voteable_type: "Answer")
+  if logged_in?
+    vote = Vote.create(voteable_id: params[:id], voteable_type: "Answer")
+  end
   answer = vote.voteable_type.classify.constantize.find(vote.voteable_id)
   @question = Question.find(answer.question_id)
   if request.xhr?
