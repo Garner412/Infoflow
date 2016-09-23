@@ -28,8 +28,7 @@ post "/questions/:id/vote" do
     @question.votes.count.to_s
   else
     redirect "/questions/#{@question.id}"
-  # end
-end
+  end
 end
 
 get '/questions/:id/edit' do
